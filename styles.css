@@ -80,6 +80,7 @@ img,svg{display:block}
 .hero__kicker{font-family:var(--font-head);font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-size:.9rem;margin-bottom:.6rem}
 .hero__title{font-family:var(--font-display);font-weight:900;font-size:clamp(2.6rem,8vw,5.4rem);letter-spacing:2px;line-height:.98}
 .hero__title--green{color:var(--green-bright)}
+.hero__title--gold{color:var(--gold-bright)}
 .hero__sub{margin:1.3rem auto 2rem;max-width:520px;color:#cdd2de;font-size:1.05rem}
 .hero__actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
 
