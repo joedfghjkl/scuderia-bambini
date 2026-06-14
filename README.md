@@ -1,6 +1,6 @@
 # Scuderia Bambini — Webseite (Prototyp)
 
-Webseite für die **Motorsport-AG der fns:köln** — „Motorsport goes green".
+Webseite für **Scuderia Bambini** — ein **Motorsport-Projekt für Jugendliche** in Kooperation mit der fns:köln und der Motorsportakademie.
 
 ## Ansehen
 - **Einfach:** `index.html` doppelklicken (öffnet im Browser).
