@@ -168,6 +168,9 @@ img,svg{display:block}
 .partners{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.4rem}
 .plogo{flex:1;min-width:180px;padding:1.6rem;text-align:center;font-family:var(--font-head);font-weight:700;letter-spacing:1px;color:var(--white);background:rgba(255,255,255,.04);border:1px solid var(--panel-line);border-radius:12px}
 .plogo--add{color:var(--muted);border-style:dashed}
+.plogo--img{background:#fff;display:flex;align-items:center;justify-content:center;padding:1rem 1.4rem;transition:transform .15s ease,border-color .2s ease}
+.plogo--img:hover{transform:translateY(-3px);border-color:var(--gold)}
+.plogo--img img{max-width:100%;max-height:66px;width:auto;height:auto;object-fit:contain}
 
 /* finish line */
 .finish{position:absolute;bottom:0;left:0;right:0;height:34px;z-index:2;
