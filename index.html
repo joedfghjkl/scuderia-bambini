@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scuderia Bambini — Motorsport goes green | Motorsport-AG der fns:köln</title>
+  <meta name="description" content="Die Motorsport-AG der fns:köln. Technik, Nachhaltigkeit und echtes Racing: Boxenteam, PTC Racing Cup, Auto-Slalom und die DMSB National A Lizenz." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ SVG DEFINITIONEN (Wappen + Auto) ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="scb-crest" viewBox="0 0 200 224">
+      <!-- Schild Gold-Rand -->
+      <path d="M16 10 H184 a8 8 0 0 1 8 8 V128 c0 44 -40 70 -92 86 C48 198 8 172 8 128 V18 a8 8 0 0 1 8 -8 Z" fill="#C7A24C"/>
+      <!-- Schild Navy innen -->
+      <path d="M22 18 H178 a4 4 0 0 1 4 4 V126 c0 38 -35 62 -82 77 C53 188 18 164 18 126 V22 a4 4 0 0 1 4 -4 Z" fill="#171C2B"/>
+      <!-- SCB -->
+      <text x="100" y="74" text-anchor="middle" font-family="Orbitron, sans-serif" font-weight="900" font-size="56" fill="#C7A24C" letter-spacing="2">SCB</text>
+      <!-- Trennlinie -->
+      <rect x="26" y="88" width="148" height="3" fill="#C7A24C"/>
+      <!-- Karo-Band -->
+      <g id="crest-checker"></g>
+      <rect x="26" y="92" width="148" height="44" fill="none" stroke="#C7A24C" stroke-width="2"/>
+      <!-- Banner -->
+      <path d="M20 150 H180 L168 178 H32 Z" fill="#F7F7F2"/>
+      <path d="M20 150 L8 162 L24 162 Z" fill="#C7A24C"/>
+      <path d="M180 150 L192 162 L176 162 Z" fill="#C7A24C"/>
+      <text x="100" y="170" text-anchor="middle" font-family="Rajdhani, sans-serif" font-weight="700" font-size="17" fill="#171C2B" letter-spacing="1.5">SCUDERIA BAMBINI</text>
+    </symbol>
+  </svg>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__brand" aria-label="Scuderia Bambini Startseite">
+      <svg class="nav__logo" data-logo><use href="#scb-crest"/></svg>
+      <span class="nav__name">Scuderia&nbsp;Bambini</span>
+    </a>
+    <nav class="nav__links" aria-label="Hauptnavigation">
+      <a href="#projekt">Projekt</a>
+      <a href="#rennen">Rennen</a>
+      <a href="#lizenz">Lizenz</a>
+      <a href="#werkstatt">Werkstatt</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#kontakt" class="nav__cta">Mitmachen</a>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <svg class="hero__crest" id="heroCrest" data-logo><use href="#scb-crest"/></svg>
+      <p class="hero__kicker">Motorsport-AG der fns:köln</p>
+      <h1 class="hero__title">MOTORSPORT<br><span class="hero__title--green">GOES&nbsp;GREEN</span></h1>
+      <p class="hero__sub">Technik · Nachhaltigkeit · echtes Racing.<br>Vom Boxenteam bis ans Steuer — und zur eigenen Rennlizenz.</p>
+
+      <!-- Ampel -->
+      <div class="lights" id="lights" role="img" aria-label="Startampel">
+        <span class="light light--red"></span>
+        <span class="light light--red"></span>
+        <span class="light light--red"></span>
+        <span class="light light--green"></span>
+        <span class="light light--green"></span>
+      </div>
+      <p class="lights__label" id="lightsLabel">Lichter aus … gleich geht's los</p>
+
+      <div class="hero__actions">
+        <a href="#kontakt" class="btn btn--gold">Jetzt mitmachen</a>
+        <a href="#projekt" class="btn btn--ghost">Mehr erfahren</a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll &amp; Gas</span>
+      <div class="scroll-hint__mouse"><span></span></div>
+    </div>
+  </section>
+
+  <!-- ============ STRECKE (Scroll-Animation) ============ -->
+  <main class="track" id="track">
+    <svg class="track__road" id="road" preserveAspectRatio="none" aria-hidden="true"></svg>
+
+    <!-- Das Auto -->
+    <div class="car" id="car" aria-hidden="true">
+      <svg viewBox="0 0 120 64" width="120" height="64">
+        <!-- Auto zeigt nach rechts (+x); GSAP dreht es in Fahrtrichtung -->
+        <g>
+          <!-- Heckflügel -->
+          <rect x="2" y="14" width="8" height="36" rx="2" fill="#0e1118"/>
+          <!-- Reifen hinten -->
+          <rect x="12" y="6" width="20" height="10" rx="3" fill="#0b0d12"/>
+          <rect x="12" y="48" width="20" height="10" rx="3" fill="#0b0d12"/>
+          <!-- Reifen vorne -->
+          <rect x="80" y="8" width="18" height="9" rx="3" fill="#0b0d12"/>
+          <rect x="80" y="47" width="18" height="9" rx="3" fill="#0b0d12"/>
+          <!-- Body -->
+          <path d="M14 24 L60 20 Q104 22 116 32 Q104 42 60 44 L14 40 Q10 32 14 24 Z" fill="#C7A24C"/>
+          <path d="M14 27 L60 24 Q98 26 110 32 Q98 38 60 40 L14 37 Q12 32 14 27 Z" fill="#15324a" opacity="0"/>
+          <!-- Mittel-Stripe Navy -->
+          <path d="M22 30 L108 31 L108 33 L22 34 Z" fill="#171C2B"/>
+          <!-- Cockpit -->
+          <ellipse cx="52" cy="32" rx="11" ry="7" fill="#171C2B"/>
+          <ellipse cx="52" cy="32" rx="6" ry="4" fill="#0b0d12"/>
+          <!-- Frontflügel -->
+          <rect x="112" y="20" width="6" height="24" rx="2" fill="#0e1118"/>
+          <!-- Startnummer -->
+          <text x="34" y="36" font-family="Orbitron, sans-serif" font-weight="900" font-size="13" fill="#171C2B">1</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Inhaltsbereiche, die das Auto passiert -->
+    <div class="track__content">
+
+      <!-- PROJEKT -->
+      <section class="stop stop--left" id="projekt">
+        <div class="panel">
+          <span class="panel__tag">Das Projekt</span>
+          <h2>Drei Säulen, ein Team</h2>
+          <p>Die Motorsport-AG verbindet einen technischen Bereich unserer Welt mit nachhaltigem Denken — neugierig, kritisch und verantwortungsvoll.</p>
+          <div class="pillars">
+            <div class="pillar"><span class="pillar__ico">🔧</span><strong>Technik &amp; Werkstatt</strong><span>Motoren, Fahrwerk, Reparatur, Werkzeugkunde, Sicherheit.</span></div>
+            <div class="pillar"><span class="pillar__ico">🌱</span><strong>Nachhaltigkeit</strong><span>CO₂-Bilanz, E-Fuels, Hybrid &amp; Elektro, Recycling, Reparaturkultur.</span></div>
+            <div class="pillar"><span class="pillar__ico">🤝</span><strong>Persönlichkeit &amp; Team</strong><span>Verantwortung, Präzision, Disziplin, Teamfähigkeit.</span></div>
+          </div>
+          <blockquote>„Ein Rennwagen fährt nur, wenn alle zusammenarbeiten."</blockquote>
+        </div>
+      </section>
+
+      <!-- RENNEN -->
+      <section class="stop stop--right" id="rennen">
+        <div class="panel">
+          <span class="panel__tag">Rennen &amp; Wettbewerbe</span>
+          <h2>Echtes Racing. Echte Strecke.</h2>
+          <p>Unsere Kids werden Teil des Boxenteams — und fahren das eine oder andere Rennen selbst.</p>
+          <div class="cards">
+            <div class="mini">
+              <h3>PTC Racing Cup</h3>
+              <p>Identische Autos (Peugeot 107 / Toyota Aygo / Citroën C1) — faire Chancen, das Können entscheidet. Strecken wie Assen, Zandvoort &amp; Meppen.</p>
+            </div>
+            <div class="mini">
+              <h3>Auto-Slalom</h3>
+              <p>Präzision, Ideallinie und Fahrzeugbeherrschung auf abgesperrten Flächen — der perfekte Einstieg in den Rennsport.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIZENZ -->
+      <section class="stop stop--left" id="lizenz">
+        <div class="panel panel--accent">
+          <span class="panel__tag panel__tag--green">DMSB National A Lizenz</span>
+          <h2>Werde Rennfahrer:in</h2>
+          <p>Bei uns können Jugendliche ihre offizielle <strong>DMSB National A Lizenz</strong> machen — der Einstieg in den nationalen Automobilsport ist ab 15 Jahren möglich.</p>
+          <ul class="ticks">
+            <li>Grundwissen Sicherheit &amp; Verhalten auf der Strecke</li>
+            <li>Fahrtraining mit lizenziertem Instruktor</li>
+            <li>Der erste echte Schritt in die Motorsport-Karriere</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- WERKSTATT -->
+      <section class="stop stop--right" id="werkstatt">
+        <div class="panel">
+          <span class="panel__tag">Werkstatt &amp; Berufe</span>
+          <h2>MINT zum Anfassen</h2>
+          <p>Vom Schrauben bis zur Datenanalyse: Motorsport öffnet Türen zu echten Berufsfeldern.</p>
+          <div class="jobs">
+            <span>Mechaniker:in</span><span>Ingenieur:in</span><span>Datenanalyse</span>
+            <span>Rennleitung</span><span>Streckenposten</span><span>Motorsport-Journalismus</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SICHERHEIT -->
+      <section class="stop stop--left" id="sicherheit">
+        <div class="panel">
+          <span class="panel__tag">Sicherheit zuerst</span>
+          <h2>Verantwortung fährt mit</h2>
+          <p>Ein durchdachtes Risiko- und Sicherheitskonzept gibt Eltern und Schule Vertrauen.</p>
+          <div class="safety">
+            <div><strong>Werkstatt</strong><span>Einweisung, Schutzkleidung, Arbeiten nur unter Aufsicht.</span></div>
+            <div><strong>Fahrtraining</strong><span>Lizenzierter Instruktor, Helmpflicht, Eltern-Einverständnis.</span></div>
+            <div><strong>Versicherung</strong><span>Schulische Unfallversicherung + Absicherung über Veranstalter.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALERIE -->
+      <section class="stop stop--full" id="galerie">
+        <div class="panel panel--wide">
+          <span class="panel__tag">Galerie</span>
+          <h2>Aus Boxengasse &amp; Werkstatt</h2>
+          <p>Echte Fotos kommen hier rein — Werkstatt, Strecke, Team und Rennen.</p>
+          <div class="gallery">
+            <div class="ph">Werkstatt</div><div class="ph">Boxenstopp</div><div class="ph">Strecke</div>
+            <div class="ph">Team</div><div class="ph">Slalom</div><div class="ph">Siegerehrung</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARTNER -->
+      <section class="stop stop--full" id="partner">
+        <div class="panel panel--wide">
+          <span class="panel__tag">Partner &amp; Förderer</span>
+          <h2>Gemeinsam stark</h2>
+          <div class="partners">
+            <div class="plogo">Motorsportakademie</div>
+            <div class="plogo">fns:köln</div>
+            <div class="plogo plogo--add">Ihr Logo?</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Ziellinie -->
+    <div class="finish" id="finish" aria-hidden="true"></div>
+  </main>
+
+  <!-- ============ KONTAKT ============ -->
+  <section class="contact" id="kontakt">
+    <div class="contact__inner">
+      <span class="panel__tag">Ziel erreicht 🏁</span>
+      <h2>Mitmachen &amp; Kontakt</h2>
+      <p>Interesse an der Motorsport-AG, am Boxenteam oder als Sponsor? Schreib uns!</p>
+      <form class="form" id="contactForm" novalidate>
+        <div class="form__row">
+          <label>Name<input type="text" name="name" required placeholder="Dein Name" /></label>
+          <label>E-Mail<input type="email" name="email" required placeholder="dein@mail.de" /></label>
+        </div>
+        <label>Ich interessiere mich für
+          <select name="thema">
+            <option>Mitmachen in der AG</option>
+            <option>Boxenteam / Rennen</option>
+            <option>DMSB A-Lizenz</option>
+            <option>Sponsoring / Partnerschaft</option>
+            <option>Allgemeine Frage</option>
+          </select>
+        </label>
+        <label>Nachricht<textarea name="nachricht" rows="4" placeholder="Deine Nachricht …"></textarea></label>
+        <button type="submit" class="btn btn--gold">Nachricht senden</button>
+        <p class="form__note" id="formNote">Hinweis: Im Prototyp wird noch nichts verschickt — das Backend kommt in Phase 3.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <svg class="footer__logo" data-logo><use href="#scb-crest"/></svg>
+    <div>
+      <strong>Scuderia Bambini</strong>
+      <span>Motorsport-AG der fns:köln · in Kooperation mit der Motorsportakademie</span>
+    </div>
+    <small>© 2026 Scuderia Bambini · Prototyp · Impressum &amp; Datenschutz folgen</small>
+  </footer>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/MotionPathPlugin.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
