@@ -77,7 +77,9 @@ img,svg{display:block}
 }
 .hero__inner{position:relative;z-index:2;max-width:760px}
 .hero__crest{width:120px;height:134px;margin:0 auto 1.2rem;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
-.hero__video{width:min(440px,72vw);height:auto;margin:0 auto .6rem;border-radius:14px;display:block;filter:drop-shadow(0 14px 40px rgba(0,0,0,.55))}
+.hero__video{width:min(460px,78vw);height:auto;margin:-1.5rem auto -1rem;display:block;
+  -webkit-mask-image:radial-gradient(ellipse 68% 66% at 50% 47%,#000 52%,transparent 80%);
+  mask-image:radial-gradient(ellipse 68% 66% at 50% 47%,#000 52%,transparent 80%)}
 .hero__kicker{font-family:var(--font-head);font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-size:.9rem;margin-bottom:.6rem}
 .hero__title{font-family:var(--font-display);font-weight:900;font-size:clamp(2.6rem,8vw,5.4rem);letter-spacing:2px;line-height:.98}
 .hero__title--green{color:var(--green-bright)}
