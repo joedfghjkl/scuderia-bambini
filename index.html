@@ -46,7 +46,7 @@
       <a href="#lizenz">Lizenz</a>
       <a href="#werkstatt">Werkstatt</a>
       <a href="#galerie">Galerie</a>
-      <a href="#kontakt" class="nav__cta">Mitmachen</a>
+      <a href="#kontakt" class="nav__cta">Sponsor werden</a>
     </nav>
   </header>
 
@@ -72,7 +72,7 @@
       <p class="lights__label" id="lightsLabel">Lichter aus … gleich geht's los</p>
 
       <div class="hero__actions">
-        <a href="#kontakt" class="btn btn--gold">Jetzt mitmachen</a>
+        <a href="#kontakt" class="btn btn--gold">Sponsor werden</a>
         <a href="#projekt" class="btn btn--ghost">Mehr erfahren</a>
       </div>
     </div>
@@ -228,26 +228,29 @@
   <!-- ============ KONTAKT ============ -->
   <section class="contact" id="kontakt">
     <div class="contact__inner">
-      <span class="panel__tag">Ziel erreicht 🏁</span>
-      <h2>Mitmachen &amp; Kontakt</h2>
-      <p>Interesse am Motorsport-Projekt, am Boxenteam oder als Sponsor? Schreib uns!</p>
+      <span class="panel__tag">Sponsoren &amp; Partner</span>
+      <h2>Werde Sponsor von Scuderia Bambini</h2>
+      <p>Unterstütze junge Talente auf ihrem Weg in den Rennsport — als Geld-, Sach- oder Medienpartner. Erzähl uns kurz von dir, wir melden uns. 🏁</p>
       <form class="form" id="contactForm" novalidate>
         <div class="form__row">
-          <label>Name<input type="text" name="name" required placeholder="Dein Name" /></label>
-          <label>E-Mail<input type="email" name="email" required placeholder="dein@mail.de" /></label>
+          <label>Ansprechpartner<input type="text" name="name" required placeholder="Vor- und Nachname" /></label>
+          <label>Unternehmen<input type="text" name="firma" placeholder="Firma / Organisation" /></label>
         </div>
-        <label>Ich interessiere mich für
+        <div class="form__row">
+          <label>E-Mail<input type="email" name="email" required placeholder="name@firma.de" /></label>
+          <label>Telefon (optional)<input type="tel" name="telefon" placeholder="+49 …" /></label>
+        </div>
+        <label>Art der Unterstützung
           <select name="thema">
-            <option>Beim Projekt mitmachen</option>
-            <option>Boxenteam / Rennen</option>
-            <option>DMSB A-Lizenz</option>
-            <option>Sponsoring / Partnerschaft</option>
-            <option>Allgemeine Frage</option>
+            <option>Geldsponsoring</option>
+            <option>Sachsponsoring / Material</option>
+            <option>Medien- / Kooperationspartner</option>
+            <option>Sonstiges</option>
           </select>
         </label>
-        <label>Nachricht<textarea name="nachricht" rows="4" placeholder="Deine Nachricht …"></textarea></label>
-        <button type="submit" class="btn btn--gold">Nachricht senden</button>
-        <p class="form__note" id="formNote">Hinweis: Im Prototyp wird noch nichts verschickt — das Backend kommt in Phase 3.</p>
+        <label>Nachricht<textarea name="nachricht" rows="4" placeholder="Wie möchtest du Scuderia Bambini unterstützen?"></textarea></label>
+        <button type="submit" class="btn btn--gold">Sponsoring-Anfrage senden</button>
+        <p class="form__note" id="formNote">Hinweis: Im Prototyp wird noch nichts verschickt — der Versand kommt in Phase 3.</p>
       </form>
     </div>
   </section>
