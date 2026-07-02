@@ -3,6 +3,22 @@
   "use strict";
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Analytics: Event-Helfer + Klick-Tracking ---------- */
+  function track(name, data) {
+    try {
+      if (typeof window.va === "function") window.va("event", data ? { name: name, data: data } : { name: name });
+    } catch (e) {}
+  }
+  document.addEventListener("click", function (e) {
+    const a = e.target.closest("a, button");
+    if (!a) return;
+    const txt = (a.textContent || "").trim().toLowerCase();
+    if (a.matches('a[href$=".pdf"]')) track("sponsorenmappe_download");
+    else if (a.classList.contains("plogo--img")) track("partner_click", { partner: (a.getAttribute("aria-label") || "").split("(")[0].trim() });
+    else if (a.classList.contains("social__link")) track("social_click", { network: a.getAttribute("aria-label") || "" });
+    else if (txt.indexOf("sponsor werden") > -1) track("sponsor_click", { ort: a.className || "" });
+  });
+
   /* ---------- 0. Echtes Logo verwenden, sobald assets/logo.* existiert ---------- */
   (function realLogo() {
     const candidates = ["assets/logo.png", "assets/logo.svg", "assets/logo.jpg", "assets/logo.webp"];
@@ -87,6 +103,7 @@
         "Art der Unterstützung: " + (d.get("thema") || "") + "\n\n" +
         (d.get("nachricht") || "");
       const subj = "Sponsoring-Anfrage – " + (d.get("firma") || d.get("name") || "");
+      track("sponsor_form_submit", { thema: d.get("thema") || "" });
       window.location.href =
         "mailto:info@scuderiabambini.de?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
       note.textContent = "Dein E-Mail-Programm öffnet sich mit der Anfrage. 🏁 Oder schreib direkt an info@scuderiabambini.de.";
