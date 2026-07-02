@@ -279,6 +279,18 @@ img.nav__logo,img.hero__crest,img.footer__logo{object-fit:contain}
 .footer span{color:var(--muted);font-size:.9rem}
 .footer small{width:100%;color:#5b6172;font-size:.8rem;margin-top:.5rem}
 
+/* social icons */
+.social{display:flex;gap:.7rem;justify-content:center;width:100%;order:3;margin-top:.2rem}
+.social__link{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--panel-line);color:var(--gold);transition:transform .15s ease,background .2s ease,color .2s ease}
+.social__link:hover{transform:translateY(-2px);background:var(--gold);color:var(--navy)}
+.social__link svg{width:20px;height:20px}
+
+/* live badge */
+.live-note{display:flex;align-items:center;gap:.7rem;margin-top:1.2rem;padding:.75rem 1rem;border:1px solid rgba(255,45,45,.4);background:rgba(255,45,45,.09);border-radius:12px;font-size:.92rem;color:#e7c9c9}
+.live-note strong{color:#fff}
+.live-dot{flex:none;width:11px;height:11px;border-radius:50%;background:#ff2d2d;animation:livepulse 1.5s infinite}
+@keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(255,45,45,.55)}70%{box-shadow:0 0 0 11px rgba(255,45,45,0)}100%{box-shadow:0 0 0 0 rgba(255,45,45,0)}}
+
 /* ---------- Reduced motion ---------- */
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;scroll-behavior:auto!important}
