@@ -78,9 +78,19 @@
     f.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!f.checkValidity()) { f.reportValidity(); return; }
-      note.textContent = "Danke! 🏁 (Im Prototyp wird noch nichts verschickt — Backend folgt in Phase 3.)";
+      const d = new FormData(f);
+      const body =
+        "Ansprechpartner: " + (d.get("name") || "") + "\n" +
+        "Unternehmen: " + (d.get("firma") || "") + "\n" +
+        "E-Mail: " + (d.get("email") || "") + "\n" +
+        "Telefon: " + (d.get("telefon") || "") + "\n" +
+        "Art der Unterstützung: " + (d.get("thema") || "") + "\n\n" +
+        (d.get("nachricht") || "");
+      const subj = "Sponsoring-Anfrage – " + (d.get("firma") || d.get("name") || "");
+      window.location.href =
+        "mailto:info@scuderiabambini.de?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
+      note.textContent = "Dein E-Mail-Programm öffnet sich mit der Anfrage. 🏁 Oder schreib direkt an info@scuderiabambini.de.";
       note.classList.add("ok");
-      f.reset();
     });
   })();
 
@@ -115,11 +125,12 @@
       const H = track.offsetHeight;
       const cx = W / 2;
       const amp = Math.min(W * 0.27, 360);
-      const segs = 14;
+      const waves = Math.max(5, Math.min(18, Math.round(H / 700)));
+      const segs = waves * 4;
       const pts = [];
       for (let i = 0; i <= segs; i++) {
         const t = i / segs;
-        pts.push({ x: cx + amp * Math.sin(t * Math.PI * 5), y: t * H });
+        pts.push({ x: cx + amp * Math.sin(t * Math.PI * waves), y: t * H });
       }
       const d = catmullRomPath(pts);
       const rw = Math.max(90, Math.min(W * 0.12, 150));

@@ -76,10 +76,10 @@
         <a href="#sponsoring" class="btn btn--gold">Sponsor werden</a>
         <a href="#projekt" class="btn btn--ghost">Mehr erfahren</a>
       </div>
-    </div>
-    <div class="scroll-hint" aria-hidden="true">
-      <span>Scroll &amp; Gas</span>
-      <div class="scroll-hint__mouse"><span></span></div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll &amp; Gas</span>
+        <div class="scroll-hint__mouse"><span></span></div>
+      </div>
     </div>
   </section>
 
@@ -92,26 +92,23 @@
       <svg viewBox="0 0 120 64" width="120" height="64">
         <!-- Auto zeigt nach rechts (+x); GSAP dreht es in Fahrtrichtung -->
         <g>
-          <!-- Heckflügel -->
-          <rect x="2" y="14" width="8" height="36" rx="2" fill="#0e1118"/>
-          <!-- Reifen hinten -->
-          <rect x="12" y="6" width="20" height="10" rx="3" fill="#0b0d12"/>
-          <rect x="12" y="48" width="20" height="10" rx="3" fill="#0b0d12"/>
-          <!-- Reifen vorne -->
-          <rect x="80" y="8" width="18" height="9" rx="3" fill="#0b0d12"/>
-          <rect x="80" y="47" width="18" height="9" rx="3" fill="#0b0d12"/>
-          <!-- Body -->
-          <path d="M14 24 L60 20 Q104 22 116 32 Q104 42 60 44 L14 40 Q10 32 14 24 Z" fill="#C7A24C"/>
-          <path d="M14 27 L60 24 Q98 26 110 32 Q98 38 60 40 L14 37 Q12 32 14 27 Z" fill="#15324a" opacity="0"/>
-          <!-- Mittel-Stripe Navy -->
-          <path d="M22 30 L108 31 L108 33 L22 34 Z" fill="#171C2B"/>
-          <!-- Cockpit -->
-          <ellipse cx="52" cy="32" rx="11" ry="7" fill="#171C2B"/>
-          <ellipse cx="52" cy="32" rx="6" ry="4" fill="#0b0d12"/>
-          <!-- Frontflügel -->
-          <rect x="112" y="20" width="6" height="24" rx="2" fill="#0e1118"/>
-          <!-- Startnummer -->
-          <text x="34" y="36" font-family="Orbitron, sans-serif" font-weight="900" font-size="13" fill="#171C2B">1</text>
+          <!-- Reifen -->
+          <rect x="24" y="7" width="18" height="10" rx="3" fill="#0b0d12"/>
+          <rect x="24" y="47" width="18" height="10" rx="3" fill="#0b0d12"/>
+          <rect x="82" y="7" width="18" height="10" rx="3" fill="#0b0d12"/>
+          <rect x="82" y="47" width="18" height="10" rx="3" fill="#0b0d12"/>
+          <!-- Karosserie weiß (C1) -->
+          <path d="M15 23 Q17 15 30 15 L98 16 Q115 20 118 32 Q115 44 98 48 L30 49 Q17 49 15 41 Z" fill="#f4f4f0"/>
+          <!-- Gold-Folierung Streifen -->
+          <path d="M20 24 L112 26 L112 29 L20 27 Z" fill="#C7A24C"/>
+          <path d="M20 37 L112 35 L112 38 L20 40 Z" fill="#C7A24C"/>
+          <!-- Cockpit dunkel -->
+          <rect x="46" y="21" width="34" height="22" rx="6" fill="#1c2230"/>
+          <!-- Startnummer 36 -->
+          <circle cx="63" cy="32" r="8.5" fill="#ffffff"/>
+          <text x="63" y="35.6" text-anchor="middle" font-family="Orbitron, sans-serif" font-weight="900" font-size="9" fill="#171C2B">36</text>
+          <!-- Frontlippe gold -->
+          <path d="M114 27 Q120 32 114 37 Z" fill="#C7A24C"/>
         </g>
       </svg>
     </div>
@@ -202,11 +199,13 @@
       <section class="stop stop--full" id="galerie">
         <div class="panel panel--wide">
           <span class="panel__tag">Galerie</span>
-          <h2>Aus Boxengasse &amp; Werkstatt</h2>
-          <p>Echte Fotos kommen hier rein — Werkstatt, Strecke, Team und Rennen.</p>
+          <h2>Aus Boxengasse &amp; Fahrerlager</h2>
+          <p>Echte Einblicke: unser Rennwagen, die Werkstatt, das Team und unterwegs an der Strecke.</p>
           <div class="gallery">
-            <div class="ph">Werkstatt</div><div class="ph">Boxenstopp</div><div class="ph">Strecke</div>
-            <div class="ph">Team</div><div class="ph">Slalom</div><div class="ph">Siegerehrung</div>
+            <figure class="shot shot--car"><img src="assets/car-render.png" alt="Unser Rennwagen – Citroën C1 #36" loading="lazy" /><figcaption>Unser Rennwagen #36</figcaption></figure>
+            <figure class="shot"><img src="assets/gallery-1.jpg" alt="In der Box mit dem Team" loading="lazy" /><figcaption>In der Box</figcaption></figure>
+            <figure class="shot"><img src="assets/gallery-2.jpg" alt="Am Fahrerlager an der Strecke" loading="lazy" /><figcaption>Am Fahrerlager</figcaption></figure>
+            <figure class="shot"><img src="assets/gallery-3.jpg" alt="Unterwegs mit der Motorsportakademie" loading="lazy" /><figcaption>Mit der Akademie</figcaption></figure>
           </div>
         </div>
       </section>
@@ -229,10 +228,6 @@
       </section>
 
     </div>
-
-    <!-- Ziellinie -->
-    <div class="finish" id="finish" aria-hidden="true"></div>
-  </main>
 
   <!-- ============ INITIATOR / VITA ============ -->
   <section class="vita" id="initiator">
@@ -362,10 +357,14 @@
         </label>
         <label>Nachricht<textarea name="nachricht" rows="4" placeholder="Wie möchtest du Scuderia Bambini unterstützen?"></textarea></label>
         <button type="submit" class="btn btn--gold">Sponsoring-Anfrage senden</button>
-        <p class="form__note" id="formNote">Hinweis: Im Prototyp wird noch nichts verschickt — der Versand kommt in Phase 3.</p>
+        <p class="form__note" id="formNote">Deine Anfrage geht an info@scuderiabambini.de.</p>
       </form>
     </div>
   </section>
+
+    <!-- Ziellinie -->
+    <div class="finish" id="finish" aria-hidden="true"></div>
+  </main>
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
