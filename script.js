@@ -2,6 +2,9 @@
 (function () {
   "use strict";
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const contactEmail = "info@scuderiabambini.de";
+  const driverInquiry = "Fahrerplatz – 2CV 24h Spa 2026";
+  const spaEvent = "2CV 24h Spa · Rennwochenende 23.–25.10.2026";
 
   /* ---------- Analytics: Event-Helfer + Klick-Tracking ---------- */
   function track(name, data) {
@@ -16,6 +19,7 @@
     if (a.matches('a[href$=".pdf"]')) track("sponsorenmappe_download");
     else if (a.classList.contains("plogo--img")) track("partner_click", { partner: (a.getAttribute("aria-label") || "").split("(")[0].trim() });
     else if (a.classList.contains("social__link")) track("social_click", { network: a.getAttribute("aria-label") || "" });
+    else if (a.getAttribute("data-inquiry") === driverInquiry || a.getAttribute("href") === "#spa") track("fahrerplatz_click");
     else if (txt.indexOf("sponsor werden") > -1) track("sponsor_click", { ort: a.className || "" });
   });
 
@@ -86,28 +90,44 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   })();
 
-  /* ---------- 4. Kontaktformular (Prototyp) ---------- */
+  /* ---------- 4. Fahrerplatz- und Sponsoring-Anfrage per E-Mail ---------- */
   (function form() {
     const f = document.getElementById("contactForm");
     const note = document.getElementById("formNote");
     if (!f) return;
+    const topic = f.elements.namedItem("thema");
+    document.querySelectorAll("[data-inquiry]").forEach((link) => {
+      link.addEventListener("click", () => {
+        const value = link.getAttribute("data-inquiry");
+        if (topic && [...topic.options].some((option) => option.value === value)) {
+          topic.value = value;
+        }
+      });
+    });
     f.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!f.checkValidity()) { f.reportValidity(); return; }
       const d = new FormData(f);
+      const inquiry = d.get("thema") || "Sonstiges";
+      const isDriverInquiry = inquiry === driverInquiry;
       const body =
+        "Veranstaltung: " + spaEvent + "\n" +
         "Ansprechpartner: " + (d.get("name") || "") + "\n" +
         "Unternehmen: " + (d.get("firma") || "") + "\n" +
         "E-Mail: " + (d.get("email") || "") + "\n" +
         "Telefon: " + (d.get("telefon") || "") + "\n" +
-        "Art der Unterstützung: " + (d.get("thema") || "") + "\n\n" +
+        "Anliegen: " + inquiry + "\n\n" +
         (d.get("nachricht") || "");
-      const subj = "Sponsoring-Anfrage – " + (d.get("firma") || d.get("name") || "");
-      track("sponsor_form_submit", { thema: d.get("thema") || "" });
+      const subj = (isDriverInquiry ? "Fahrerplatz-Anfrage" : "Sponsoring-Anfrage") +
+        " – 2CV 24h Spa 2026 – " + (d.get("firma") || d.get("name") || "");
+      // Nur die Auswahl auswerten; keine Namen, Kontaktdaten oder Nachrichten an Analytics senden.
+      track(isDriverInquiry ? "fahrerplatz_mail_prepare" : "sponsor_mail_prepare", { thema: inquiry });
+      if (note) {
+        note.textContent = "Die Anfrage ist vorbereitet. Versende sie jetzt in deinem E-Mail-Programm. Falls es sich nicht öffnet, schreib direkt an " + contactEmail + ".";
+        note.classList.add("ok");
+      }
       window.location.href =
-        "mailto:info@scuderiabambini.de?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
-      note.textContent = "Dein E-Mail-Programm öffnet sich mit der Anfrage. 🏁 Oder schreib direkt an info@scuderiabambini.de.";
-      note.classList.add("ok");
+        "mailto:" + contactEmail + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
     });
   })();
 
