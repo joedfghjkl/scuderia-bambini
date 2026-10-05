@@ -38,7 +38,8 @@
       <svg class="nav__logo" data-logo><use href="#scb-crest"/></svg>
       <span class="nav__name">Scuderia&nbsp;Bambini</span>
     </a>
-    <nav class="nav__links" aria-label="Hauptnavigation">
+    <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" hidden>Menü</button>
+    <nav class="nav__links" id="navLinks" aria-label="Hauptnavigation">
       <a href="#projekt">Projekt</a>
       <a href="#spa">Spa 24h</a>
       <a href="#lizenz">Lizenz</a>
@@ -121,6 +122,10 @@
           <span class="panel__tag">Rennwochenende · 23.–25.10.2026 · Belgien</span>
           <h2>2CV 24h Spa: Fahrerplätze</h2>
           <p>Wir bereiten unseren Citroën C1 für das <strong>24-Stunden-Rennen in Spa-Francorchamps</strong> vor. Du möchtest mit Scuderia Bambini an den Start gehen oder unseren Einsatz als Partner unterstützen?</p>
+          <figure class="section-photo section-photo--wide">
+            <img src="assets/c1-rennstrecke.jpg" alt="Unser Citroën C1 im schwarz-goldenen SCB-Design auf der Rennstrecke" width="1536" height="1024" loading="lazy" decoding="async" />
+            <figcaption>Unser C1 auf der Strecke. Nächstes Ziel: 24 Stunden Spa.</figcaption>
+          </figure>
           <div class="cards">
             <div class="mini">
               <h3>Mitfahren in Spa</h3>
@@ -144,13 +149,17 @@
         <div class="panel">
           <span class="panel__tag">Das Projekt</span>
           <h2>Drei Säulen, ein Team</h2>
-          <p>Unser Motorsport-Projekt verbindet einen technischen Bereich unserer Welt mit nachhaltigem Denken — neugierig, kritisch und verantwortungsvoll.</p>
+          <p>Scuderia Bambini ist ein eigenständiges Motorsport-Projekt aus Köln. Unsere Motorsport-AG wird an der fns:köln angeboten. Jugendliche arbeiten am Fahrzeug, lernen technische Zusammenhänge kennen und übernehmen Aufgaben im Team.</p>
           <div class="pillars">
             <div class="pillar"><span class="pillar__ico">🔧</span><strong>Technik &amp; Werkstatt</strong><span>Motoren, Fahrwerk, Reparatur, Werkzeugkunde, Sicherheit.</span></div>
             <div class="pillar"><span class="pillar__ico">🌱</span><strong>Nachhaltigkeit</strong><span>CO₂-Bilanz, E-Fuels, Hybrid &amp; Elektro, Recycling, Reparaturkultur.</span></div>
             <div class="pillar"><span class="pillar__ico">🤝</span><strong>Persönlichkeit &amp; Team</strong><span>Verantwortung, Präzision, Disziplin, Teamfähigkeit.</span></div>
           </div>
           <blockquote>„Ein Rennwagen fährt nur, wenn alle zusammenarbeiten."</blockquote>
+          <figure class="section-photo">
+            <img src="assets/team-fahrerlager.jpg" alt="Jugendliche und Betreuer am SCB-Rennwagen im Fahrerlager" width="1600" height="1200" loading="lazy" decoding="async" />
+            <figcaption>Gemeinsam anpacken, gemeinsam lernen.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -206,6 +215,10 @@
           <div class="jobs jobs--basis">
             <span>Fanatec-Simulator</span><span>Assetto Corsa</span><span>G29-Lenkrad</span><span>2 Hebebühnen</span><span>eigene Werkstatt</span><span>eigenes Rennfahrzeug</span>
           </div>
+          <figure class="section-photo section-photo--workshop">
+            <img src="assets/c1-werkstatt.jpg" alt="Unser Citroën C1 in der Werkstatt unter einer Hebebühne" width="1152" height="1536" loading="lazy" decoding="async" />
+            <figcaption>Hier beginnt die Vorbereitung für die Rennstrecke.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -236,9 +249,9 @@
               <div class="tl__dot"></div>
               <div class="tl__body">
                 <span class="tl__date">Unser Rennwagen</span>
-                <h3>Citroën C1 #36 im SCB-Design</h3>
-                <p>Unser eigenes Fahrzeug ist da — foliert in Gold &amp; Schwarz mit der Startnummer 36.</p>
-                <div class="tl__thumb tl__thumb--car"><img src="assets/car-render.png" alt="Rennwagen #36" loading="lazy" /></div>
+                <h3>Citroën C1 im SCB-Design</h3>
+                <p>Unser eigenes Fahrzeug ist da — foliert in Gold &amp; Schwarz.</p>
+                <div class="tl__thumb"><img src="assets/c1-rennstrecke.jpg" alt="Unser Citroën C1 auf der Rennstrecke" width="1536" height="1024" loading="lazy" decoding="async" /></div>
               </div>
             </li>
             <li class="tl">
@@ -276,12 +289,23 @@
         <div class="panel panel--wide">
           <span class="panel__tag">Galerie</span>
           <h2>Aus Boxengasse &amp; Fahrerlager</h2>
-          <p>Echte Einblicke: unser Rennwagen, die Werkstatt, das Team und unterwegs an der Strecke.</p>
-          <div class="gallery">
-            <figure class="shot shot--car"><img src="assets/car-render.png" alt="Unser Rennwagen – Citroën C1 #36" loading="lazy" /><figcaption>Unser Rennwagen #36</figcaption></figure>
-            <figure class="shot"><img src="assets/gallery-1.jpg" alt="In der Box mit dem Team" loading="lazy" /><figcaption>In der Box</figcaption></figure>
-            <figure class="shot"><img src="assets/gallery-2.jpg" alt="Am Fahrerlager an der Strecke" loading="lazy" /><figcaption>Am Fahrerlager</figcaption></figure>
-            <figure class="shot"><img src="assets/gallery-3.jpg" alt="Unterwegs mit der Motorsportakademie" loading="lazy" /><figcaption>Mit der Akademie</figcaption></figure>
+          <p>Unser C1 auf der Strecke, Teamarbeit im Fahrerlager und Technik in der Werkstatt. Öffne ein Bild für die Großansicht.</p>
+          <div class="gallery-filters" id="galleryFilters" role="group" aria-label="Bilder nach Thema filtern" hidden>
+            <button type="button" class="gallery-filter" data-filter="all" aria-pressed="true">Alle</button>
+            <button type="button" class="gallery-filter" data-filter="strecke" aria-pressed="false">Rennstrecke</button>
+            <button type="button" class="gallery-filter" data-filter="team" aria-pressed="false">Team &amp; Fahrerlager</button>
+            <button type="button" class="gallery-filter" data-filter="werkstatt" aria-pressed="false">Werkstatt</button>
+          </div>
+          <p class="gallery-count" id="galleryCount" aria-live="polite" hidden></p>
+          <div class="gallery" id="photoGallery">
+            <figure class="shot" data-category="strecke"><a class="shot__link" href="assets/c1-rennstrecke.jpg" target="_blank" rel="noopener" aria-label="C1 im Renneinsatz – Bild vergrößern"><img src="assets/c1-rennstrecke.jpg" alt="SCB-Citroën C1 mit der Startnummer 98 in einer Kurve" width="1536" height="1024" loading="lazy" decoding="async" /></a><figcaption>C1 im Renneinsatz</figcaption></figure>
+            <figure class="shot" data-category="team"><a class="shot__link" href="assets/team-fahrerlager.jpg" target="_blank" rel="noopener" aria-label="Teamarbeit im Fahrerlager – Bild vergrößern"><img src="assets/team-fahrerlager.jpg" alt="Das Nachwuchsteam bei einer Besprechung am SCB-Rennwagen" width="1600" height="1200" loading="lazy" decoding="async" /></a><figcaption>Teamarbeit im Fahrerlager</figcaption></figure>
+            <figure class="shot" data-category="werkstatt"><a class="shot__link" href="assets/c1-werkstatt.jpg" target="_blank" rel="noopener" aria-label="Vorbereitung in der Werkstatt – Bild vergrößern"><img src="assets/c1-werkstatt.jpg" alt="Citroën C1 in der Werkstatt unter der Hebebühne" width="1152" height="1536" loading="lazy" decoding="async" /></a><figcaption>Vorbereitung in der Werkstatt</figcaption></figure>
+            <figure class="shot" data-category="strecke"><a class="shot__link" href="assets/c1-tribuene.jpg" target="_blank" rel="noopener" aria-label="Unser C1 vor der Tribüne – Bild vergrößern"><img src="assets/c1-tribuene.jpg" alt="Unser SCB-Rennwagen auf der Strecke vor einer Tribüne" width="1152" height="1536" loading="lazy" decoding="async" /></a><figcaption>Unser C1 vor der Tribüne</figcaption></figure>
+            <figure class="shot" data-category="werkstatt"><a class="shot__link" href="assets/gallery-1.jpg" target="_blank" rel="noopener" aria-label="Technik gemeinsam verstehen – Bild vergrößern"><img src="assets/gallery-1.jpg" alt="Jugendliche und Betreuer bei einem Techniktermin in der Werkstatt" loading="lazy" decoding="async" /></a><figcaption>Technik gemeinsam verstehen</figcaption></figure>
+            <figure class="shot" data-category="team"><a class="shot__link" href="assets/team-rennstrecke.jpg" target="_blank" rel="noopener" aria-label="Gemeinsam an der Rennstrecke – Bild vergrößern"><img src="assets/team-rennstrecke.jpg" alt="Zwei Teammitglieder im SCB-Shirt unterwegs an der Rennstrecke" width="1366" height="2048" loading="lazy" decoding="async" /></a><figcaption>Gemeinsam an der Rennstrecke</figcaption></figure>
+            <figure class="shot" data-category="werkstatt"><a class="shot__link" href="assets/gallery-2.jpg" target="_blank" rel="noopener" aria-label="Einblicke an der Hebebühne – Bild vergrößern"><img src="assets/gallery-2.jpg" alt="Die Gruppe bei der Erklärung von Fahrzeugtechnik an einer Hebebühne" width="1600" height="1200" loading="lazy" decoding="async" /></a><figcaption>Einblicke an der Hebebühne</figcaption></figure>
+            <figure class="shot" data-category="team"><a class="shot__link" href="assets/gallery-3.jpg" target="_blank" rel="noopener" aria-label="Mit der Motorsportakademie – Bild vergrößern"><img src="assets/gallery-3.jpg" alt="Das Team bei einem Besuch der Motorsportakademie" width="1600" height="1200" loading="lazy" decoding="async" /></a><figcaption>Mit der Motorsportakademie</figcaption></figure>
           </div>
         </div>
       </section>
@@ -313,8 +337,7 @@
     <div class="vita__inner">
       <aside class="vita__aside">
         <div class="vita__portrait">
-          <img src="assets/giuseppe.jpg" alt="Giuseppe Turco" onerror="this.remove();document.getElementById('vitaInitials').removeAttribute('hidden')" />
-          <div class="vita__initials" id="vitaInitials" hidden>GT</div>
+          <div class="vita__initials" aria-label="Initialen von Giuseppe Turco">GT</div>
         </div>
         <div class="vita__stats">
           <div class="vita__stat"><b>27</b><span>Jahre · Kölner mit ital. Wurzeln</span></div>
@@ -446,6 +469,19 @@
     <div class="finish" id="finish" aria-hidden="true"></div>
   </main>
 
+  <dialog class="photo-viewer" id="galleryViewer" aria-label="Fotogalerie in Großansicht">
+    <button class="photo-viewer__close" id="viewerClose" type="button" autofocus>Schließen</button>
+    <figure class="photo-viewer__figure">
+      <img id="viewerImage" alt="" />
+      <figcaption id="viewerCaption" aria-live="polite"></figcaption>
+    </figure>
+    <div class="photo-viewer__controls">
+      <button type="button" id="viewerPrev">Zurück</button>
+      <span id="viewerPosition" aria-live="polite"></span>
+      <button type="button" id="viewerNext">Weiter</button>
+    </div>
+  </dialog>
+
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <svg class="footer__logo" data-logo><use href="#scb-crest"/></svg>
@@ -461,7 +497,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4.5" fill="currentColor"/><path d="M10 8.8 L16 12 L10 15.2 Z" fill="#171C2B"/></svg>
       </a>
     </div>
-    <small>© 2026 Scuderia Bambini · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · Live während der Rennen auf Instagram &amp; YouTube</small>
+    <small>© 2026 Scuderia Bambini · SCB Racing School UG (haftungsbeschränkt) i. G.<br /><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · Live während der Rennen auf Instagram &amp; YouTube</small>
   </footer>
 
   <script src="assets/vendor/gsap.min.js"></script>

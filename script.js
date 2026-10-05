@@ -85,9 +85,90 @@
   /* ---------- 3. Sticky-Navigation ---------- */
   (function nav() {
     const el = document.getElementById("nav");
+    if (!el) return;
+    const toggle = document.getElementById("navToggle");
+    const links = document.getElementById("navLinks");
+    if (toggle && links) {
+      toggle.hidden = false;
+      const close = () => { links.classList.remove("is-open"); toggle.setAttribute("aria-expanded", "false"); toggle.textContent = "Menü"; };
+      toggle.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") !== "true";
+        links.classList.toggle("is-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.textContent = open ? "Schließen" : "Menü";
+      });
+      links.addEventListener("click", (e) => { if (e.target.closest("a")) close(); });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") { close(); toggle.focus(); }
+      });
+    }
     const onScroll = () => el.classList.toggle("is-stuck", window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+  })();
+
+  /* ---------- Fotogalerie: Filter und zugängliche Großansicht ---------- */
+  (function gallery() {
+    const gallery = document.getElementById("photoGallery");
+    if (!gallery) return;
+    const shots = [...gallery.querySelectorAll(".shot")];
+    const filters = document.getElementById("galleryFilters");
+    const count = document.getElementById("galleryCount");
+    const visibleLinks = () => shots.filter((shot) => !shot.hidden).map((shot) => shot.querySelector(".shot__link"));
+    if (filters && count) {
+      filters.hidden = false;
+      count.hidden = false;
+      const updateCount = () => { const n = visibleLinks().length; count.textContent = n + (n === 1 ? " Bild" : " Bilder"); };
+      updateCount();
+      filters.addEventListener("click", (e) => {
+        const button = e.target.closest("[data-filter]");
+        if (!button) return;
+        const category = button.dataset.filter;
+        shots.forEach((shot) => { shot.hidden = category !== "all" && shot.dataset.category !== category; });
+        filters.querySelectorAll("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+        updateCount();
+        window.dispatchEvent(new Event("resize"));
+      });
+    }
+    const viewer = document.getElementById("galleryViewer");
+    if (!viewer || typeof viewer.showModal !== "function") return;
+    const image = document.getElementById("viewerImage");
+    const caption = document.getElementById("viewerCaption");
+    const position = document.getElementById("viewerPosition");
+    const previous = document.getElementById("viewerPrev");
+    const next = document.getElementById("viewerNext");
+    let active = 0;
+    let opener = null;
+    function show(index) {
+      const links = visibleLinks();
+      active = (index + links.length) % links.length;
+      const link = links[active];
+      image.src = link.href;
+      image.alt = link.querySelector("img").alt;
+      caption.textContent = link.closest("figure").querySelector("figcaption").textContent;
+      position.textContent = (active + 1) + " / " + links.length;
+      previous.disabled = next.disabled = links.length < 2;
+    }
+    gallery.addEventListener("click", (e) => {
+      const link = e.target.closest(".shot__link");
+      if (!link || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      opener = link;
+      show(visibleLinks().indexOf(link));
+      viewer.showModal();
+      document.body.classList.add("photo-viewer-open");
+    });
+    previous.addEventListener("click", () => show(active - 1));
+    next.addEventListener("click", () => show(active + 1));
+    document.getElementById("viewerClose").addEventListener("click", () => viewer.close());
+    viewer.addEventListener("click", (e) => { if (e.target === viewer) viewer.close(); });
+    viewer.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") { e.preventDefault(); show(active + (e.key === "ArrowLeft" ? -1 : 1)); }
+    });
+    viewer.addEventListener("close", () => {
+      document.body.classList.remove("photo-viewer-open");
+      if (opener) opener.focus({ preventScroll: true });
+    });
   })();
 
   /* ---------- 4. Fahrerplatz- und Sponsoring-Anfrage per E-Mail ---------- */
